@@ -1,0 +1,15 @@
+{
+  "name": "csc-3100-ai-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "test": "node --test",
+    "reset": "node scripts/reset.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
+

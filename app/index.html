@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Launch Night Registration</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">CSC 3100 AI lab</p>
+      <h1>Launch Night</h1>
+      <p class="intro">Reserve a seat for a student demo night.</p>
+
+      <form data-form>
+        <label for="email">Cal Poly email</label>
+        <div class="field-row">
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            placeholder="mustang@calpoly.edu"
+            required
+          />
+          <button type="submit">Reserve seat</button>
+        </div>
+      </form>
+
+      <p class="status" data-status aria-live="polite">Ready for a test signup.</p>
+      <p class="count"><strong data-count>0</strong> registrations in the demo datastore</p>
+    </main>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
+
