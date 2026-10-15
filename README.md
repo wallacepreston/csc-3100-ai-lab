@@ -4,12 +4,21 @@ This tiny event signup app has one missing feature: it accepts duplicate email a
 
 ## Before the timer
 
+Use Node.js 20 or newer. Clone the starter, then open the folder in your coding agent:
+
+```sh
+git clone https://github.com/wallacepreston/csc-3100-ai-lab.git
+cd csc-3100-ai-lab
+```
+
+You can also choose **Code → Download ZIP** on GitHub and unzip it.
+
 1. Open this folder in Codex or Cursor.
 2. Run `npm test`.
 3. Run `npm run dev`, then open <http://localhost:4173>.
 4. Read [TASK.md](TASK.md).
 
-The app uses only Node.js. There is nothing to install.
+The app uses only Node.js. There are no npm dependencies to install. The initial tests pass; your task is to add the missing duplicate case.
 
 ## Give the agent durable context
 
@@ -56,4 +65,3 @@ Duplicate means the same normalized email. A production system would also enforc
 5. Review the diff. Write one correction or remaining uncertainty.
 
 Reset the demo data with `npm run reset`.
-
