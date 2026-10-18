@@ -4,6 +4,7 @@ import { extname, join } from "node:path"
 import { fileURLToPath } from "node:url"
 import {
   addRegistration,
+  DuplicateRegistrationError,
   InvalidEmailError,
   listRegistrations,
 } from "./lib/registrations.mjs"
@@ -44,6 +45,8 @@ async function handleApi(request, response, pathname) {
     } catch (error) {
       if (error instanceof InvalidEmailError) {
         sendJson(response, 400, { error: error.message })
+      } else if (error instanceof DuplicateRegistrationError) {
+        sendJson(response, 409, { error: error.message })
       } else if (error instanceof SyntaxError) {
         sendJson(response, 400, { error: "Send valid JSON" })
       } else {

@@ -13,4 +13,3 @@ Prevent duplicate event registrations.
 ## Scope
 
 Keep the JSON datastore. A production database would enforce uniqueness atomically, but this lab focuses on the request path and verification.
-

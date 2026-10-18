@@ -1,0 +1,1 @@
+Email identity uses trimmed, lowercase text. The datastore decides whether a registration already exists. Browser validation alone is insufficient.
