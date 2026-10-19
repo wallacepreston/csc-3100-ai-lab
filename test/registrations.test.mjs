@@ -5,6 +5,7 @@ import { join } from "node:path"
 import test from "node:test"
 import {
   addRegistration,
+  DuplicateRegistrationError,
   InvalidEmailError,
   normalizeEmail,
 } from "../lib/registrations.mjs"
@@ -33,4 +34,20 @@ test("rejects an invalid email address", async () => {
     InvalidEmailError
   )
 })
+
+for (const email of ["mustang@calpoly.edu", "  Mustang@CalPoly.edu "]) {
+  test(`rejects duplicate ${JSON.stringify(email)} without changing persisted data`, async () => {
+    const directory = await mkdtemp(join(tmpdir(), "csc-3100-lab-"))
+    const dataFile = join(directory, "registrations.json")
+
+    await addRegistration("mustang@calpoly.edu", dataFile)
+    const before = await readFile(dataFile, "utf8")
+
+    await assert.rejects(addRegistration(email, dataFile), {
+      constructor: DuplicateRegistrationError,
+      message: "Already registered",
+    })
+    assert.equal(await readFile(dataFile, "utf8"), before)
+  })
+}
 
